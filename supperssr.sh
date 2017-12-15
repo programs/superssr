@@ -23,8 +23,14 @@ def checkin():
     'user-agent' : user_agent,
     'x-requested-with' : 'XMLHttpRequest'
   }
+  payload = {
+    ':authority' : 'superssr.cf',
+    ':method' : 'POST',
+    ':path' : '/user/checkin2',
+    ':scheme' : 'https'
+  }
   session = requests.session()
-  response= session.post(request_url,headers=headers)
+  response= session.post(request_url,data=payload,headers=headers)
   print response
 
 if __name__ == '__main__':
