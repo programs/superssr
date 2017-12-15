@@ -8,7 +8,12 @@ import time
 
 def checkin():
   tm = str(int(time.time()))
-  cookie = '__cfduid=d6252d2a32409fd4aaa5ca81bf54d4b7c1512540683; UM_distinctid=1602a734328bc1-07c7e841f5e638-17386d57-13c680-1602a734329bab; sid=d6991e2621c7d09f05e0a69fa4d29d7c32671f2ea5cfedca645cbf0ef478f81b; CNZZDATA1260605623=1178701526-1512540636-%7C' + tm
+  cfduid = '__cfduid=d6252d2a32409fd4aaa5ca81bf54d4b7c1512540683; '
+  distinctid = 'UM_distinctid=1602a734328bc1-07c7e841f5e638-17386d57-13c680-1602a734329bab; '
+  sid = 'sid=00f543ef193800696f40f9a897231cfc342bb7fec8a24cfcd4827cdb6cb25e7a; '
+  CNZZDATA = 'CNZZDATA1260605623=1178701526-1512540636-%7C' + tm
+  cookie = cfduid + distinctid + sid + CNZZDATA
+  
   request_url='https://superssr.cf/user/checkin2'
   user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
   referer='https://superssr.cf/user'
