@@ -68,8 +68,9 @@ def checkin(Sid):
     ':scheme' : 'https'
   }
   resp = session.post(request_url,data=payload,headers=headers)
+  resp.encoding = 'gbk'
   print 'CHECKIN:' + str(resp.status_code)
-  print resp.raw.read()
+  print resp.text
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
