@@ -8,6 +8,7 @@ import time
 
 session = requests.session()
 user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+SID = ''
 
 def login():
   tm = str(int(time.time()))
@@ -42,12 +43,15 @@ def login():
   response= session.post(request_url,data=payload,headers=headers)
   print response
   print response.cookies
+  print response.cookies["sid"]
+  SID = response.cookies["sid"]
   
 def checkin():
   tm = str(int(time.time()))
   cfduid = '__cfduid=d6252d2a32409fd4aaa5ca81bf54d4b7c1512540683; '
   distinctid = 'UM_distinctid=1602a734328bc1-07c7e841f5e638-17386d57-13c680-1602a734329bab; '
-  sid = 'sid=00f543ef193800696f40f9a897231cfc342bb7fec8a24cfcd4827cdb6cb25e7a; '
+  sid = 'sid=' + SID + '; '
+  print sid
   CNZZDATA = 'CNZZDATA1260605623=1178701526-1512540636-%7C' + tm
   cookie = cfduid + distinctid + sid + CNZZDATA
   request_url='https://superssr.cf/user/checkin2'
