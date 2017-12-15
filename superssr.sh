@@ -70,8 +70,8 @@ def checkin(Sid):
   resp = session.post(request_url,data=payload,headers=headers)
   #resp.encoding = 'gbk'
   print 'CHECKIN:' + str(resp.status_code)
-  print resp.text
-  print resp.content
+  str = resp.content
+  print str.decode('gb2312')
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
