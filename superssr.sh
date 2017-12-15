@@ -69,7 +69,7 @@ def checkin(Sid):
   }
   resp = session.post(request_url,data=payload,headers=headers)
   print 'CHECKIN:' + str(resp.status_code)
-  print resp.content
+  print resp.raw.read()
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
