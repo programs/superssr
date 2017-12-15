@@ -38,11 +38,14 @@ def login():
     'passwd' : 'Vpn1357_',
     'remember_me' : 'week'
   }
-  resp = session.post(request_url,data=payload,headers=headers)
-  print 'LOGIN:' + str(resp.status_code)
-  respSid = resp.cookies["sid"]
-  print 'sid:=' + respSid
-  return respSid
+  try:
+    resp = session.post(request_url,data=payload,headers=headers)
+    print 'LOGIN:' + str(resp.status_code)
+    respSid = resp.cookies["sid"]
+    print 'sid:=' + respSid
+    return respSid
+  except Exception as e:
+    print(e)
   
 def checkin(Sid):
   sid = 'sid=' + Sid + '; '
@@ -67,10 +70,13 @@ def checkin(Sid):
     ':path' : '/user/checkin2',
     ':scheme' : 'https'
   }
-  resp = session.post(request_url,data=payload,headers=headers)
-  print 'CHECKIN:' + str(resp.status_code)
-  rest = resp.content
-  print rest.decode('gbk')
+  try:
+    resp = session.post(request_url,data=payload,headers=headers)
+    resp.encoding = 'gbk'
+    print 'CHECKIN:' + str(resp.status_code)
+    print = resp.text
+  except Exception as e:
+    print(e)
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
@@ -95,8 +101,11 @@ def logout(Sid):
     ':path' : '/user/logout',
     ':scheme' : 'https'
   }
-  resp = session.get(request_url,data=payload,headers=headers)
-  print 'LOGOUT:' + str(resp.status_code)
+  try:
+    resp = session.get(request_url,data=payload,headers=headers)
+    print 'LOGOUT:' + str(resp.status_code)
+  except Exception as e:
+    print(e)
   
 if __name__ == '__main__':
   sid = login()
