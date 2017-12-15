@@ -71,6 +71,8 @@ def checkin(Sid):
   resp.encoding = 'gbk'
   print 'CHECKIN:' + str(resp.status_code)
   print resp.text
+  print resp.content
+  print resp.raw.read()
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
