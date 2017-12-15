@@ -100,5 +100,7 @@ def logout(Sid):
 if __name__ == '__main__':
   sid = login()
   time.sleep(3)
+  checkin(sid)
+  time.sleep(3)
   logout(sid)
 
