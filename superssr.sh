@@ -74,7 +74,7 @@ def checkin(Sid):
     resp = session.post(request_url,data=payload,headers=headers)
     resp.encoding = 'gbk'
     print 'CHECKIN:' + str(resp.status_code)
-    print = resp.text
+    print resp.text
   except Exception as e:
     print(e)
 
