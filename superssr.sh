@@ -40,6 +40,7 @@ def login():
     'remember_me' : 'week'
   }
   response= session.post(request_url,data=payload,headers=headers)
+  print response
   print response.cookies
   
 def checkin():
