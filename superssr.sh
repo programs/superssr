@@ -69,7 +69,7 @@ def checkin():
   resp = session.post(request_url,data=payload,headers=headers)
   print 'CHECKIN:' + resp + resp.response
 
- def logout():
+def logout():
   sid = 'sid=' + SID + '; '
   print sid
   CNZZDATA = 'CNZZDATA1260605623=1178701526-1512540636-%7C' + str(int(time.time()))
