@@ -40,7 +40,7 @@ def login():
     'remember_me' : 'week'
   }
   resp = session.post(request_url,data=payload,headers=headers)
-  print 'LOGIN:' + resp.status_code + resp.cookies
+  print 'LOGIN:' + str(resp.status_code) + resp.cookies
   SID = resp.cookies["sid"]
   
 def checkin():
@@ -67,7 +67,7 @@ def checkin():
     ':scheme' : 'https'
   }
   resp = session.post(request_url,data=payload,headers=headers)
-  print 'CHECKIN:' + resp.status_code + resp.content
+  print 'CHECKIN:' + str(resp.status_code) + resp.content
 
 def logout():
   sid = 'sid=' + SID + '; '
@@ -94,7 +94,7 @@ def logout():
     ':scheme' : 'https'
   }
   resp = session.get(request_url,data=payload,headers=headers)
-  print 'LOGOUT:' + resp.status_code + resp.content
+  print 'LOGOUT:' + str(resp.status_code) + resp.content
   
 if __name__ == '__main__':
   login()
