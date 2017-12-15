@@ -40,11 +40,9 @@ def login():
     'passwd' : 'Vpn1357_',
     'remember_me' : 'week'
   }
-  response= session.post(request_url,data=payload,headers=headers)
-  print response
-  print response.cookies
-  print response.cookies["sid"]
-  SID = response.cookies["sid"]
+  resp = session.post(request_url,data=payload,headers=headers)
+  print 'LOGIN:' + resp.response + resp.cookies
+  SID = resp.cookies["sid"]
   
 def checkin():
   tm = str(int(time.time()))
@@ -73,8 +71,8 @@ def checkin():
     ':path' : '/user/checkin2',
     ':scheme' : 'https'
   }
-  response= session.post(request_url,data=payload,headers=headers)
-  print response
+  resp = session.post(request_url,data=payload,headers=headers)
+  print 'CHECKIN:' + resp + resp.response
 
 if __name__ == '__main__':
   login()
