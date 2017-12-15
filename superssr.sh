@@ -68,7 +68,8 @@ def checkin():
     ':scheme' : 'https'
   }
   resp = session.post(request_url,data=payload,headers=headers)
-  print 'CHECKIN:' + str(resp.status_code) + resp.content
+  print 'CHECKIN:' + str(resp.status_code)
+  print resp.content
 
 def logout():
   sid = 'sid=' + SID + '; '
@@ -95,7 +96,8 @@ def logout():
     ':scheme' : 'https'
   }
   resp = session.get(request_url,data=payload,headers=headers)
-  print 'LOGOUT:' + str(resp.status_code) + resp.content
+  print 'LOGOUT:' + str(resp.status_code)
+  print resp.content
   
 if __name__ == '__main__':
   login()
