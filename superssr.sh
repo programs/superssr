@@ -73,8 +73,6 @@ def checkin(Sid):
 
 def logout(Sid):
   sid = 'sid=' + Sid + '; '
-  print 'p-sid' + Sid
-  print sid
   CNZZDATA = 'CNZZDATA1260605623=1178701526-1512540636-%7C' + str(int(time.time()))
   cookie = cfduid + distinctid + sid + CNZZDATA
   request_url='https://superssr.cf/user/logout'
