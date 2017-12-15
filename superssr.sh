@@ -41,8 +41,8 @@ def login():
   }
   resp = session.post(request_url,data=payload,headers=headers)
   print 'LOGIN:' + str(resp.status_code)
-  print resp.cookies
   SID = resp.cookies["sid"]
+  print 'sid:=' + SID
   
 def checkin():
   sid = 'sid=' + SID + '; '
@@ -73,6 +73,7 @@ def checkin():
 
 def logout():
   sid = 'sid=' + SID + '; '
+  print 'p-sid' + SID
   print sid
   CNZZDATA = 'CNZZDATA1260605623=1178701526-1512540636-%7C' + str(int(time.time()))
   cookie = cfduid + distinctid + sid + CNZZDATA
@@ -97,10 +98,9 @@ def logout():
   }
   resp = session.get(request_url,data=payload,headers=headers)
   print 'LOGOUT:' + str(resp.status_code)
-  print resp.content
   
 if __name__ == '__main__':
   login()
-  time.sleep(5)
+  time.sleep(3)
   logout()
 
