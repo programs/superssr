@@ -72,9 +72,9 @@ def checkin(Sid):
   }
   try:
     resp = session.post(request_url,data=payload,headers=headers)
-    resp.encoding = 'gbk'
+    resp.encoding = 'utf-8'
     print 'CHECKIN:' + str(resp.status_code)
-    print 'Acquired capacity:' + str(re.findall(r'\d+', resp.text)) + ' M'
+    print resp.text
   except Exception as e:
     print(e)
 
